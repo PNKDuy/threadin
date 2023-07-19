@@ -1,0 +1,35 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "My first APIhub.",
+        "title": "Sandbox API",
+        "contact": {
+            "name": "KayDee",
+            "email": "phngkhuongduy@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "paths": {
+        "/api/v1/": {
+            "get": {
+                "description": "hello world",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "api/v1"
+                ],
+                "summary": "ping example",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

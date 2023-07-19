@@ -1,0 +1,23 @@
+host: localhost:8080
+info:
+  contact:
+    email: phngkhuongduy@gmail.com
+    name: KayDee
+  description: My first APIhub.
+  title: Sandbox API
+  version: "1.0"
+paths:
+  /api/v1/:
+    get:
+      description: hello world
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: ping example
+      tags:
+      - api/v1
+swagger: "2.0"

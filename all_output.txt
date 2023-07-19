@@ -1,0 +1,109 @@
+The core classes, functions, and methods that will be necessary for the project are as follows:
+
+1. main.go: The entrypoint of the application.
+2. router.go: Handles the routing and HTTP request handling using the Gin framework.
+3. handler.go: Contains the handler function for the GET API endpoint.
+4. swagger.go: Generates the Swagger documentation for the API.
+
+Now, let's proceed with creating the necessary files and their contents.
+
+main.go
+```go
+package main
+
+import (
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	router := gin.Default()
+	router.GET("/", helloWorldHandler)
+	router.Run(":8080")
+}
+
+func helloWorldHandler(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"message": "Hello world",
+	})
+}
+```
+
+router.go
+```go
+package main
+
+import (
+	"github.com/gin-gonic/gin"
+)
+
+func SetupRouter() *gin.Engine {
+	router := gin.Default()
+	router.GET("/", helloWorldHandler)
+	return router
+}
+```
+
+handler.go
+```go
+package main
+
+import (
+	"github.com/gin-gonic/gin"
+)
+
+func helloWorldHandler(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"message": "Hello world",
+	})
+}
+```
+
+swagger.go
+```go
+package main
+
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
+)
+
+// @title Sandbox API
+// @version 1.0
+// @description API for Sandbox project
+// @host localhost:8080
+// @BasePath /
+func SetupSwagger(router *gin.Engine) {
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+}
+```
+
+Please note that the above code assumes that you have already installed the necessary dependencies (`gin`, `swaggo`, `gin-swagger`, etc.) using Go modules or any other package manager.
+
+The project structure should be as follows:
+
+```
+sandbox-api
+├── main.go
+├── router.go
+├── handler.go
+└── swagger.go
+```
+
+To generate the Swagger documentation, you can run the following command in the project directory:
+
+```
+swag init
+```
+
+This will generate the `docs` directory containing the Swagger JSON and YAML files.
+
+Make sure to import the necessary packages in each file and ensure that the code is compatible with each other.
+
+Finally, you can run the application by executing the following command:
+
+```
+go run main.go
+```
+
+The application will start running on `http://localhost:8080` and you can access the Swagger documentation at `http://localhost:8080/swagger/index.html`.
