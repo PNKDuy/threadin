@@ -15,3 +15,7 @@ func HelloWorldHandler(c *gin.Context) {
 		"message": "Hello world",
 	})
 }
+
+func GetThreadsPost(c *gin.Context) {
+
+}
