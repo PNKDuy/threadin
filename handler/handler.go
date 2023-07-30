@@ -16,6 +16,14 @@ func HelloWorldHandler(c *gin.Context) {
 	})
 }
 
+// @Summary thread post get
+// @Description threads post get
+// @Produce json
+// @Success 200
+// @Router /threads/get [get]
+// @Tags threads
 func GetThreadsPost(c *gin.Context) {
-
+	c.JSON(200, gin.H{
+		"message": "Threads post data",
+	})
 }

@@ -20,4 +20,15 @@ paths:
       summary: ping example
       tags:
       - api/v1
+  /threads/get:
+    get:
+      description: threads post get
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: thread post get
+      tags:
+      - threads
 swagger: "2.0"

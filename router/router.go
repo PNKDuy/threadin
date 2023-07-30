@@ -14,7 +14,7 @@ func SetupRouter() *gin.Engine {
 	}
 	threads := router.Group("threads")
 	{
-		threads.GET("")
+		threads.GET("/get", handler.GetThreadsPost)
 	}
 	return router
 }

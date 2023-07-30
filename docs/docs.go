@@ -38,6 +38,23 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/threads/get": {
+            "get": {
+                "description": "threads post get",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "threads"
+                ],
+                "summary": "thread post get",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
         }
     }
 }`
