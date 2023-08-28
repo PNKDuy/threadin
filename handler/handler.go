@@ -22,7 +22,7 @@ func HelloWorldHandler(c *gin.Context) {
 // @Success 200
 // @Router /threads/get [get]
 // @Tags threads
-func GetThreadsPost(c *gin.Context) {
+func GetThreadsPostHandler(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "Threads post data",
 	})
