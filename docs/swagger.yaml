@@ -31,4 +31,9 @@ paths:
       summary: thread post get
       tags:
       - threads
+securityDefinitions:
+  ApiKeyHeader:
+    in: header
+    name: X-API-KEY
+    type: apiKey
 swagger: "2.0"
