@@ -1,11 +1,13 @@
 package main
 
 import (
+	"log"
 	"sandbox-api/router"
 
 	_ "sandbox-api/docs"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
@@ -20,6 +22,9 @@ import (
 // @in header
 // @name X-API-KEY
 func main() {
+	if err := godotenv.Load(); err != nil {
+		log.Fatalf("Failed to load the env vars: %v", err)
+	}
 	r := router.SetupRouter()
 
 	// Middleware

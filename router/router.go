@@ -14,9 +14,5 @@ func SetupRouter() *gin.Engine {
 		v1.Use(middleware.AuthMiddleware())
 		v1.GET("/", handler.HelloWorldHandler)
 	}
-	threads := router.Group("threads")
-	{
-		threads.GET("/get", handler.GetThreadsPostHandler)
-	}
 	return router
 }

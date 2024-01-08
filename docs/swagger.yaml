@@ -17,20 +17,11 @@ paths:
           description: OK
           schema:
             type: string
+      security:
+      - ApiKeyHeader: []
       summary: ping example
       tags:
       - api/v1
-  /threads/get:
-    get:
-      description: threads post get
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-      summary: thread post get
-      tags:
-      - threads
 securityDefinitions:
   ApiKeyHeader:
     in: header

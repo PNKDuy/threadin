@@ -6,6 +6,7 @@ import (
 
 // @Summary ping example
 // @Description hello world
+// @Security ApiKeyHeader
 // @Produce json
 // @Success 200 {string} Helloworld
 // @Router /api/v1/ [get]
@@ -13,17 +14,5 @@ import (
 func HelloWorldHandler(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "Hello world",
-	})
-}
-
-// @Summary thread post get
-// @Description threads post get
-// @Produce json
-// @Success 200
-// @Router /threads/get [get]
-// @Tags threads
-func GetThreadsPostHandler(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": "Threads post data",
 	})
 }
