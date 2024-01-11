@@ -30,6 +30,7 @@ func main() {
 	// Middleware
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+	// r.Use(middleware.AuthMiddleware())
 
 	r.GET("/swagger-ui/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
