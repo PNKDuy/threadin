@@ -3,9 +3,12 @@ package main
 import (
 	"log"
 	"sandbox-api/router"
+	"time"
 
 	_ "sandbox-api/docs"
 
+	"github.com/faiface/beep"
+	"github.com/faiface/beep/speaker"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	swaggerfiles "github.com/swaggo/files"
@@ -34,4 +37,14 @@ func main() {
 	r.GET("/swagger-ui/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	r.Run(":8080")
+}
+
+// Initialize the speaker system
+func initSpeaker() {
+	// Sample rate for the speaker (44100 Hz is standard CD quality)
+	sr := beep.SampleRate(44100)
+	err := speaker.Init(sr, sr.N(time.Second/10))
+	if err != nil {
+		log.Fatal("Failed to initialize speaker:", err)
+	}
 }

@@ -14,5 +14,9 @@ func SetupRouter() *gin.Engine {
 		v1.Use(middleware.AuthMiddleware())
 		v1.GET("/", handler.HelloWorldHandler)
 	}
+	v2 := router.Group("/api/v2")
+	{
+		v2.POST("/", handler.PaymentWebhookHandler)
+	}
 	return router
 }
