@@ -83,11 +83,7 @@ func announcePayment(payment PaymentNotification) {
 	}
 
 	// Set up audio context
-	otoCtx, readyChan, err := oto.NewContext(&oto.NewContextOptions{
-		SampleRate:   22050, // Google TTS typically uses 22050 Hz for MP3
-		ChannelCount: 1,     // Mono
-		Format:       oto.FormatSignedInt16LE,
-	})
+	otoCtx, readyChan, err := oto.NewContext(22050, 1, oto.FormatSignedInt16LE)
 	if err != nil {
 		log.Printf("Failed to initialize audio context: %v", err)
 		fmt.Println(text)
